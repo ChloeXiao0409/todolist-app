@@ -1,0 +1,11 @@
+.task {
+
+}
+
+.task-text {
+
+    &.completed {
+        text-decoration: line-through;
+        color: gray;
+    }
+}
