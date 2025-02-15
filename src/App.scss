@@ -8,6 +8,7 @@ body {
 .container {
   max-width: 400px;
   margin: auto;
+  margin-top: 20px;
   text-align: center;
   background: #f3f3f3;
   padding: 20px;
@@ -43,4 +44,25 @@ body {
 .deleted-btn {
   border: none;
   cursor: pointer;
+}
+
+.filter-btns {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  button {
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      background: rgb(227, 227, 227);
+      border-radius: 5px;
+      font-size: 14px;
+  }
+
+  button:hover {
+      background: #667eea;
+      color: white;
+  }
 }
