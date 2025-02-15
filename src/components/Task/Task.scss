@@ -1,9 +1,11 @@
 .task {
-
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .task-text {
-
+    font-size: 1rem;
     &.completed {
         text-decoration: line-through;
         color: gray;
