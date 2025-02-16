@@ -9,6 +9,10 @@ const App = () => {
   const [newTask, setNewTask] = useState("");
   // filter -> string to store the filter value - all, completed, incompleted
   const [filter, setFilter] = useState("all");
+  // editingTaskId -> number to store the task id which is being edited
+  const [editingTaskId, setEditingTaskId] = useState(null);
+  // editText -> string to store the text of the task being edited
+  const [editedText, setEditedText] = useState("");
 
   // Load tasks from localStorage when the app starts
   useEffect(() => {
@@ -27,6 +31,22 @@ const App = () => {
     setNewTask("");
   }
 
+  // Start editing a task with save and cancel options
+  const startEditing = (id, text) => {
+    setEditingTaskId(id);
+    setEditedText(text);
+  }
+  const saveEditedTask = () => {
+    setTasks(tasks.map(task => task.id === editingTaskId ? {...task, text: editedText } : task));
+    setEditingTaskId(null);
+    setEditedText("");
+  }
+  const cancelEditing = () => {
+    setEditingTaskId(null);
+    setEditedText("");
+  }
+
+
   // Filter tasks based on the filter value
   const filterTasks = tasks.filter(task => {
     if (filter === "completed") return task.completed;
@@ -44,7 +64,16 @@ const App = () => {
         <button onClick={() => setFilter("completed")}>✅Completed</button>
         <button onClick={() => setFilter("incompleted")}>⏳Incompleted</button>
       </div>
-      <TaskList tasks={filterTasks} setTasks={setTasks} />
+      <TaskList 
+        tasks={filterTasks} 
+        setTasks={setTasks} 
+        editingTaskId={editingTaskId}
+        editedText={editedText}
+        setEditedText={setEditedText}
+        startEditing={startEditing}
+        saveEditedTask={saveEditedTask}
+        cancelEditing={cancelEditing}
+      />
     </div>
   )
 }

@@ -1,40 +1,62 @@
+// Theme Variables
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$light-gray: #f3f3f3;
+$hover-bg: gray;
+$button-border: #ccc;
+
+// Global Styles
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #667eea, #764ba2);
+  background: linear-gradient(to right, $primary-color, $secondary-color);
   color: black;
   text-align: center;
 }
 
+// Main Container
 .container {
   max-width: 400px;
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px auto;
   text-align: center;
-  background: #f3f3f3;
+  background: $light-gray;
   padding: 20px;
   border-radius: 10px;
 }
 
+// Input Fields
 .task-input {
   width: 50%;
   padding: 8px;
   margin-bottom: 10px;
   margin-right: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid $button-border;
   border-radius: 5px;
 }
 
-.add-btn {
-  padding: 5px;
+// Buttons
+button {
+  padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  border: 3px solid #ccc;
+  border: 1px solid $button-border;
+  
   &:hover {
-    background: #667eea;
+    background: $hover-bg;
     color: white;
   }
 }
 
+// Add Task Button
+.add-btn {
+  border: 3px solid $button-border;
+
+  &:hover {
+    background: $primary-color;
+    color: white;
+  }
+}
+
+// Task Controls
 .completed-checkbox {
   width: 20px;
   height: 20px;
@@ -46,6 +68,7 @@ body {
   cursor: pointer;
 }
 
+// Filter Buttons
 .filter-btns {
   margin: 10px 0;
   display: flex;
@@ -53,16 +76,20 @@ body {
   gap: 10px;
 
   button {
-      padding: 5px 10px;
-      border: none;
-      cursor: pointer;
-      background: rgb(227, 227, 227);
-      border-radius: 5px;
-      font-size: 14px;
+    background: rgb(227, 227, 227);
+    font-size: 14px;
   }
 
   button:hover {
-      background: #667eea;
-      color: white;
+    background: $primary-color;
+  }
+}
+
+// Edit & Save Buttons
+.save-btn, .edit-btn {
+  border: 1px solid $button-border;
+
+  &:hover {
+    background: $hover-bg;
   }
 }
